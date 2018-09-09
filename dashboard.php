@@ -94,7 +94,7 @@ $Checkclass->Admin();
                                 <li><a href="dashboard.php">ข้อมูลโดยรวม </a></li>
                             </ul>
                         </li>
-                        <li class="nav-label">Apps</li>
+                        <li class="nav-label">จัดการ</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Email</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="email-compose.html">Compose</a></li>
