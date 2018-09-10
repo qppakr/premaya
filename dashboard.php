@@ -48,11 +48,9 @@ $Checkclass->Admin();
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <b><img src="images/primaya_logo.png" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
-                    </a>
+                        <!-- Logo text -->                    </a>
                 </div>
                 <!-- End Logo -->
                 <div class="navbar-collapse">
@@ -97,19 +95,19 @@ $Checkclass->Admin();
                         <li class="nav-label">การจัดการ</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">รายชื่อตัวแทน</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="email-compose.html">รายชื่อทั้งหมด</a></li>
-                                <li><a href="email-read.html">ตัวแทน VIP</a></li>
+                                <li><a href="dmember.php">รายชื่อทั้งหมด</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">เพิ่ม/ลบ รายชื่อ</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="chart-flot.html">เพิ่มรายชื่อตัวแทน</a></li>
+                                <li><a href="dadd-member.php">เพิ่มรายชื่อตัวแทน</a></li>
+                                <li><a href="dedit-member.php">แก้ไขข้อมูลตัวแทน</a></li>
                             </ul>
                         </li>
                         <li class="nav-label">อื่นๆ</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-plus-square-o"></i><span class="hide-menu">อัพเดทเพิ่มเติม <span class="label label-rouded label-warning pull-right">*</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="ui-alert.html">รอการปรับปรุง</a></li>
+                                <li><a href="403.html">รอการปรับปรุง</a></li>
                             </ul>
                         </li>
 
@@ -194,22 +192,12 @@ $Checkclass->Admin();
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Sales</h4>
-                            </div>
-                            <div class="sales-chart">
-                                <div class="ct-bar-chart" style="height:350px"></div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
-                    </div>
+
                     <!-- /# column -->
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Visitor in Device</h4>
+                                <h4>ตัวแทนใหม่ล่าสุด</h4>
                             </div>
                             <div class="card-body">
 								<div class="table-responsive">
@@ -258,250 +246,59 @@ $Checkclass->Admin();
 							</div>
                         </div>
                     </div>
+
+                    <div class="card">
+                        <div class="card-title">
+                            <h4>กำลังใช้งาน</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="recent-meaasge">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img alt="..." src="images/avatar/1.jpg" class="media-object"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">john doe</h4>
+                                        <div class="meaasge-date">15 minutes Ago</div>
+                                        <p class="f-s-12">We are happy about your service </p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img alt="..." src="images/avatar/2.jpg" class="media-object"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. John</h4>
+                                        <div class="meaasge-date">40 minutes ago</div>
+                                        <p class="f-s-12">Quick service and good serve </p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img alt="..." src="images/avatar/3.jpg" class="media-object"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. Michael</h4>
+                                        <div class="meaasge-date">1 minutes ago</div>
+                                        <p class="f-s-12">We like your birthday cake </p>
+                                    </div>
+                                </div>
+                                <div class="media no-border">
+                                    <div class="media-left">
+                                        <a href="#"><img alt="..." src="images/avatar/2.jpg" class="media-object"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. John</h4>
+                                        <div class="meaasge-date">40 minutes ago</div>
+                                        <p class="f-s-12">Quick service and good serve </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</div>
-				<div class="row">
-                    <div class="col-lg-6">
-                        <div class="card nestable-cart">
-                            <div class="card-title">
-                                <h4>World Map</h4>
 
-                            </div>
-                            <div class="datamap">
-                                <div id="world-datamap"></div>
-                            </div>
-                        </div>
-                    </div>
-					<div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-block">
-                                <h4 class="card-title">Visitor</h4>
-                                <div class="ct-svg-chart" style="height:420px"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                </div>
                 <!-- /# row -->
-
-                <div class="row">
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Project</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="current-progress">
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Website</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                                                            40%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Android</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            60%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Ios</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                                            70%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Mobile</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                            90%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Android</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            60%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Ios</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                                            70%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Mobile</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                            90%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Messages</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="recent-meaasge">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img alt="..." src="images/avatar/1.jpg" class="media-object"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">john doe</h4>
-                                            <div class="meaasge-date">15 minutes Ago</div>
-                                            <p class="f-s-12">We are happy about your service </p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img alt="..." src="images/avatar/2.jpg" class="media-object"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Mr. John</h4>
-                                            <div class="meaasge-date">40 minutes ago</div>
-                                            <p class="f-s-12">Quick service and good serve </p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img alt="..." src="images/avatar/3.jpg" class="media-object"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Mr. Michael</h4>
-                                            <div class="meaasge-date">1 minutes ago</div>
-                                            <p class="f-s-12">We like your birthday cake </p>
-                                        </div>
-                                    </div>
-                                    <div class="media no-border">
-                                        <div class="media-left">
-                                            <a href="#"><img alt="..." src="images/avatar/2.jpg" class="media-object"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Mr. John</h4>
-                                            <div class="meaasge-date">40 minutes ago</div>
-                                            <p class="f-s-12">Quick service and good serve </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Todo</h4>
-                            </div>
-                            <div class="todo-list">
-                                <div class="tdl-holder">
-                                    <div class="tdl-content">
-                                        <ul>
-                                            <li class="color-primary">
-                                                <label>
-                                                <input type="checkbox"><i class="bg-primary"></i><span>Post three to six times on Twitter.</span>
-                                                <a href='#' class="ti-close"></a>
-                                            </label>
-                                            </li>
-                                            <li class="color-success">
-                                                <label>
-                                                <input type="checkbox" checked><i class="bg-success"></i><span>Post one to two times on Facebook.</span>
-                                                <a href='#' class="ti-close"></a>
-                                            </label>
-                                            </li>
-                                            <li class="color-warning">
-                                                <label>
-                                                <input type="checkbox" checked><i class="bg-warning"></i><span>Follow back those who follow you</span>
-                                                <a href='#' class="ti-close"></a>
-                                            </label>
-                                            </li>
-                                            <li class="color-danger">
-                                                <label>
-                                                <input type="checkbox" checked><i class="bg-danger"></i><span>Connect with one new person</span>
-                                                <a href='#' class="ti-close"></a>
-                                            </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <input type="text" class="tdl-new form-control" placeholder="Type here">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
 
 
                 <!-- End PAge Content -->

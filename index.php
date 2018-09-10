@@ -7,17 +7,8 @@
   <title>Document</title>
 </head>
 <body>
-  <?php
-  require_once('controllers/Connect.php');
-
-  $strNum = "SELECT MAX(Membercode) FROM account WHERE Teamcode = '01' ";
-  $objQuery2 = mysqli_query($con,$strNum);
-  $objNum = mysqli_fetch_array($objQuery2,MYSQLI_ASSOC);
-
-  $Num = implode("",$objNum);
-  echo $Num;
-  $Num++;
-  echo $Num;
-  ?>
+<?php
+require_once("controllers/Check.php");
+?>
 </body>
 </html>
