@@ -101,7 +101,6 @@ $Checkclass->Admin();
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">เพิ่ม/ลบ รายชื่อ</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="dadd-member.php">เพิ่มรายชื่อตัวแทน</a></li>
-                                <li><a href="dedit-member.php">แก้ไขข้อมูลตัวแทน</a></li>
                             </ul>
                         </li>
                         <li class="nav-label">อื่นๆ</li>
