@@ -33,17 +33,72 @@ $Checkclass->Admin();
 <![endif]-->
 <SCRIPT TYPE="text/javascript">
 <!--
-function popup(mylink, windowname)
+function fncSubmit()
 {
-if (! window.focus)return true;
-var href;
-if (typeof(mylink) == 'string')
-   href=mylink;
-else
-   href=mylink.href;
-window.open(href, windowname, 'width=400,height=500,scrollbars=yes');
-return false;
+	if(document.AddMember.txtID.value == "")
+	{
+		alert('กรุณากำหนดรหัสตัวแทน');
+		document.AddMember.txtID.focus();
+		return false;
+	}
+  if(document.AddMember.txtEmail.value == "")
+	{
+		alert('กรุณากำหนดอีเมล์');
+		document.AddMember.txtEmail.focus();
+		return false;
+	}
+  if(document.AddMember.txtPassword.value == "")
+	{
+		alert('กรุณากำหนดรหัสผ่าน');
+		document.AddMember.txtPassword.focus();
+		return false;
+	}
+  if(document.AddMember.txtFirstname.value == "")
+	{
+		alert('กรุณาระบุชื่อจริง');
+		document.AddMember.txtFirstname.focus();
+		return false;
+	}
+  if(document.AddMember.txtLastname.value == "")
+	{
+		alert('กรุณาระบุนามสกุล');
+		document.AddMember.txtLastname.focus();
+		return false;
+	}
+  if(document.AddMember.txtNickname.value == "")
+	{
+		alert('กรุณาระบุชื่อเล่น');
+		document.AddMember.txtNickname.focus();
+		return false;
+	}
+  if(document.AddMember.txtPhone.value == "")
+	{
+		alert('กรุณาระบุหมายเลขโทรศัพท์');
+		document.AddMember.txtPhone.focus();
+		return false;
+	}
+  if(document.AddMember.txtAddress.value == "")
+	{
+		alert('กรุณาระบุที่อยู่');
+		document.AddMember.txtAddress.focus();
+		return false;
+	}
+	document.AddMember.submit();
 }
+
+function numberonly(textbox, e) {
+
+      var charCode = (e.which) ? e.which : e.keyCode;
+      if (charCode == 46 || charCode > 31&& (charCode < 48 || charCode > 57))
+         {
+            alert("เฉพาะตัวเลขเท่านั้น!");
+            return false;
+         }
+     else
+         {
+             return true;
+         }
+       }
 //-->
 </SCRIPT>
 </head>
@@ -155,16 +210,20 @@ return false;
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">เพิ่มรายชื่อตัวแทน</h4>
-                                <h6 class="card-subtitle">เลือกกระทำส่งออกข้อมูล คัดลอก, ไฟล์ CSV, ไฟล์ Excel, ไฟล์ PDF & พิมพ์</h6>
-                                <form action="#">
+                                <h6 class="card-subtitle">ใส่ข้อมูลให้ครบทุกฟิลล์แล้วกดปุ่มบันทึก เพื่อทำการเพิ่มรายชื่อใหม่เฉพาะ <font color="red">ตัวแทนหลัก VIP</font> เท่านั้น.</h6>
+                                <form name="AddMember" method="post" action="dadd-member-save.php" target="iframe_target">
+                                  <!-- onSubmit="JavaScript:return fncSubmit();" -->
+                                  <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
                                     <div class="form-body">
                                         <hr>
                                         <!--/row-->
                                         <div class="row">
                                           <div class="col-md-6">
                                               <div class="form-group has-success">
-                                                  <label class="control-label">รหัสตัวแทน</label>
-                                                  <input type="text" id="ID" class="form-control custom-select" placeholder="PMY 00" maxlength="2">
+                                                  <label class="control-label">รหัสตัวแทน (ลำดับปัจจุบันอยู่ที่ : <?php include("controllers/Query.php");
+                                                  $QueryAll = new QueryAll();
+                                                  $QueryAll->CountTeamcode(); ?> )</label>
+                                                  <input type="text" name="txtID" id="ID" class="form-control custom-select" placeholder="PMY 00" maxlength="2" onkeypress="return numberonly(this,event);" autofocus>
                                                   <small class="form-control-feedback"> กำหนดรหัสเฉพาะแม่ทีมเท่านั้น (ระบุตัวเลขเท่านั้น) </small> </div>
                                           </div>
                                             <!--/span-->
@@ -175,14 +234,14 @@ return false;
                                             <div class="col-md-6">
                                                 <div class="form-group has-warning">
                                                     <label class="control-label">อีเมล์</label>
-                                                    <input type="email" id="Username" class="form-control custom-select" placeholder="">
+                                                    <input type="email" name="txtEmail" id="Email" class="form-control custom-select" placeholder="example@email.com">
                                                     <small class="form-control-feedback"> ระบุอีเมล์เพื่อกำหนดเป็นชื่อเข้าใช้ </small> </div>
                                             </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group has-warning">
                                                     <label class="control-label">รหัสผ่าน</label>
-                                                    <input type="text" id="Password" class="form-control custom-select" placeholder="">
+                                                    <input type="text" name="txtPassword" id="Password" class="form-control custom-select" placeholder="">
                                                     <small class="form-control-feedback"> กำหนดรหัสผ่านให้เป็นค่าเริ่มต้น (ตัวเลข, ภาษาอังกฤษเท่านั้น) </small> </div>
                                             </div>
                                             <!--/span-->
@@ -191,14 +250,14 @@ return false;
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">ชื่อจริง</label>
-                                                    <input type="text" id="Firstname" class="form-control" placeholder="">
+                                                    <input type="text" name="txtFirstname" id="Firstname" class="form-control" placeholder="">
                                                     <small class="form-control-feedback"> ชื่อจริง (ภาษาไทย) </small> </div>
                                             </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">นามสกุล</label>
-                                                    <input type="text" id="Lastname" class="form-control" placeholder="">
+                                                    <input type="text" name="txtLastname" id="Lastname" class="form-control" placeholder="">
                                                     <small class="form-control-feedback"> นามสกุล (ภาษาไทย) </small> </div>
                                             </div>
                                             <!--/span-->
@@ -208,7 +267,7 @@ return false;
                                           <div class="col-md-6">
                                               <div class="form-group">
                                                   <label class="control-label">ชื่อเล่น</label>
-                                                  <input type="text" id="Nickname" class="form-control" placeholder="">
+                                                  <input type="text" name="txtNickname" id="Nickname" class="form-control" placeholder="">
                                                   <small class="form-control-feedback"> ชื่อเล่น (ภาษาไทย) </small> </div>
                                           </div>
                                             <!--/span-->
@@ -220,14 +279,14 @@ return false;
                                           <div class="col-md-6">
                                               <div class="form-group">
                                                   <label class="control-label">เบอร์ติดต่อ</label>
-                                                  <input type="text" id="Phone" class="form-control" placeholder="">
+                                                  <input type="text" name="txtPhone" id="Phone" class="form-control" placeholder="" maxlength="10">
                                                   <small class="form-control-feedback"> เบอร์โทรศัพท์ที่ติดต่อได้ </small> </div>
                                           </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">LINE ID</label>
-                                                    <input type="text" id="LineID" class="form-control" placeholder="">
+                                                    <input type="text" name="txtLine" id="LineID" class="form-control" placeholder="">
                                                     <small class="form-control-feedback"></small> </div>
                                             </div>
                                             <!--/span-->
@@ -237,15 +296,15 @@ return false;
                                           <div class="col-md-6">
                                               <div class="form-group">
                                                   <label class="control-label">Facebook</label>
-                                                  <input type="text" id="Facebook" class="form-control" placeholder="">
-                                                  <small class="form-control-feedback"></small> </div>
+                                                  <input type="text" name="txtFacebook" id="Facebook" class="form-control" placeholder="">
+                                                  <small class="form-control-feedback">เฉพาะชื่อเฟสบุ้คเท่านั้น</small> </div>
                                           </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Instagram</label>
-                                                    <input type="text" id="Instagram" class="form-control" placeholder="">
-                                                    <small class="form-control-feedback"></small> </div>
+                                                    <input type="text" name="txtInstragram" id="Instagram" class="form-control" placeholder="">
+                                                    <small class="form-control-feedback">เฉพาะชื่อไอดี Instagram เท่านั้น</small> </div>
                                             </div>
                                             <!--/span-->
                                         </div>
@@ -256,15 +315,14 @@ return false;
                                             <div class="col-md-12 ">
                                                 <div class="form-group">
                                                     <label>ที่อยู่</label>
-                                                    <input type="text" id="Address" class="form-control">
+                                                    <input type="text" name="txtAddress" id="Address" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>จังหวัด</label>
-                                                    <select name="Country" class="form-control custom-select">
-                                                        <option value="" selected>--------- เลือกจังหวัด ---------</option>
-                                                        <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                                    <select name="selCountry" class="form-control custom-select">
+                                                        <option value="กรุงเทพมหานคร" selected>กรุงเทพมหานคร</option>
                                                         <option value="กระบี่">กระบี่ </option>
                                                         <option value="กาญจนบุรี">กาญจนบุรี </option>
                                                         <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
@@ -349,9 +407,9 @@ return false;
                                         </div>
                                         <!--/row-->
                                     </div>
-                                    <div class="form-actions">
-                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save </button> 
-                                        <button type="button" class="btn btn-inverse"> Cancel </button>
+                                    <div class="form-actions" align="center">
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> บันทึก </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button type="reset" class="btn btn-inverse"> ยกเลิก </button>
                                     </div>
                                 </form>
 
