@@ -135,7 +135,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     		<td colspan="7">
     			<img src="images/card_02.png" width="523" height="186" alt=""></td>
     		<td colspan="4" rowspan="5">
-    			<img src="images/photo/xxx.jpg" width="437" height="441" alt=""></td>
+    			<img src="images/photo/<?php echo $objResult["Photo"]; ?>" width="437" height="441" alt=""></td>
     		<td>
     			<img src="images/spacer.gif" width="1" height="186" alt=""></td>
     	</tr>
@@ -143,7 +143,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     		<td rowspan="14">
     			<img src="images/card_04.png" width="53" height="583" alt=""></td>
     		<td colspan="4" background="images/card_05.png" width="398" height="38" class="Code">
-    			PMY999-9999</td>
+    			PMY<?php echo $objResult["Teamcode"]; ?>-<?php echo $objResult["Membercode"]; ?></td>
     		<td colspan="2" rowspan="5">
     			<img src="images/card_06.png" width="72" height="266" alt=""></td>
     		<td>
@@ -159,7 +159,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     		<td colspan="2" rowspan="3">
     			<img src="images/card_08.png" width="124" height="195" alt=""></td>
     		<td>
-    			<img src="images/qr/xxx.jpg" width="140" height="141" alt=""></td>
+    			<img src="images/qrcode/<?php echo $objResult["QR"]; ?>" width="140" height="141" alt=""></td>
     		<td rowspan="3">
     			<img src="images/card_10.png" width="134" height="195" alt=""></td>
     		<td>
@@ -199,7 +199,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     	</tr>
     	<tr>
     		<td colspan="4" background="images/card_19.png" width="402" height="38" class="Details">
-    			qppakr69</td>
+    			<?php echo $objResult["LineID"]; ?></td>
     		<td colspan="2" rowspan="7">
     			<img src="images/card_20.png" width="84" height="252" alt=""></td>
     		<td>
@@ -213,7 +213,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     	</tr>
     	<tr>
     		<td colspan="4" rowspan="2" background="images/card_22.png" width="402" height="38" class="Details">
-    			_ppakrjs</td>
+    			<?php echo $objResult["IG"]; ?></td>
     		<td>
     			<img src="images/spacer.gif" width="1" height="7" alt=""></td>
     	</tr>
@@ -231,7 +231,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     	</tr>
     	<tr>
     		<td colspan="4" background="images/card_25.png" width="402" height="38" class="Details">
-    			094-251-9722</td>
+    			<?php echo $objResult["Phone"]; ?></td>
     		<td rowspan="2">
     			<img src="images/card_26.png" width="128" height="119" alt=""></td>
     		<td background="images/card_27.png" width="185" height="38" class="County">
@@ -273,7 +273,7 @@ $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     		<td></td>
     	</tr>
     </table>
-<?php 
+<?php
 mysqli_close($con);
 ?>
 </div>

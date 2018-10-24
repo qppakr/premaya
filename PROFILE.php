@@ -130,7 +130,7 @@ $Checkclass->Member();
                               <div class="card-two">
                                   <header>
                                       <div class="avatar">
-                                          <img src="images/photo/xxx.jpg" alt="" />
+                                          <img src="images/photo/<?php echo $objResult["Photo"]; ?>" alt="" />
                                       </div>
                                   </header>
 
@@ -153,6 +153,7 @@ $Checkclass->Member();
                           <!-- Nav tabs -->
                           <ul class="nav nav-tabs profile-tab" role="tablist">
                               <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">แก้ไขรูปประจำตัว</a> </li>
+                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#qrcode" role="tab">แก้ไขคิวอาร์โค้ด</a> </li>
                               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">แก้ไขข้อมูลส่วนตัว</a> </li>
                           </ul>
                           <!-- Tab panes -->
@@ -166,6 +167,15 @@ $Checkclass->Member();
                                       <iframe src="images/photo/index.php" width="100%" height="600px" frameBorder="0"></iframe>
                                   </div>
                               </div>
+                              <div class="tab-pane" id="qrcode" role="tabpanel">
+                                  <div class="card-body">
+                                      <!-- <h4 class="font-medium m-t-30">แก้ไขรูปประจำตัวและคิวอาร์โค้ด</h4> -->
+                                      <br>
+                                      <hr>
+                                      <iframe src="images/qrcode/index.php" width="100%" height="600px" frameBorder="0"></iframe>
+                                  </div>
+                              </div>
+
                               <div class="tab-pane" id="settings" role="tabpanel">
                                   <div class="card-body">
                                     <form name="AddMember" method="post" action="dadd-member-save.php" onSubmit="JavaScript:return fncSubmit();">

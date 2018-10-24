@@ -35,7 +35,7 @@ if(isset($_POST["image"]))
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
 
-	$uploadSQL = "UPDATE account SET Photo='$imageName' WHERE ID = '".$_SESSION['ID']."' ";
+	$uploadSQL = "UPDATE account SET QR='$imageName' WHERE ID = '".$_SESSION['ID']."' ";
 	$uploadQuery = mysqli_query($con,$uploadSQL);
 	if($uploadQuery){
 		exit();
