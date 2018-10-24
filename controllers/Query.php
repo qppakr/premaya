@@ -19,7 +19,7 @@ class QueryAll
   {
     include('controllers/Connect.php');
     $strPassword = md5($_POST['txtPassword']);
-    echo "ok";
+    //echo "<div class='text-left><p class="btn btn-success m-b-10 m-l-5" id="toastr-success-top-right">Success</p></div>";
     mysqli_close($con);
   }
 }

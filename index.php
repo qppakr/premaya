@@ -11,30 +11,12 @@
   <!-- Custom CSS -->
   <link href="css/helper.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <meta http-equiv="refresh" content="0; URL='login.php'" />
 </head>
 <body>
-<?php
-// require_once("controllers/Check.php");
-// $Checkclass = new Checkclass();
-// $Checkclass->Admin();
+  <?php
 
-include('controllers/Connect.php');
-$strSQL = "SELECT MAX(Teamcode) FROM account ";
-$objQuery = mysqli_query($con,$strSQL);
-$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
-if($objResult)
-{
-echo implode(",", $objResult);
-echo "<div class='text-left><button class='btn btn-success m-b-10 m-l-5' id='toastr-success-top-right'>Success</button></div>";
-}
-mysqli_close($con);
-?>
-<div class="text-left">
-    <button type="button" class="btn btn-success m-b-10 m-l-5" id="toastr-success-top-right">Success</button>
-    <button type="button" class="btn btn-info m-b-10 m-l-5" id="toastr-info-top-right">Info</button>
-    <button type="button" class="btn btn-warning m-b-10 m-l-5" id="toastr-warning-top-right">Warning</button>
-    <button type="button" class="btn btn-danger m-b-10 m-l-5" id="toastr-danger-top-right">Error</button>
-</div>
+  ?>
 <script src="js/lib/jquery/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="js/lib/bootstrap/js/popper.min.js"></script>

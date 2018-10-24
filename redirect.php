@@ -63,7 +63,7 @@
                     									}
                     									else
                     									{
-                    										header("location:member.php");
+                    										header("location:profile.php");
                     									}
                     								}
                     						mysqli_close($con);

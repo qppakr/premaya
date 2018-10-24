@@ -187,12 +187,12 @@ return false;
             									  {
             									?>
                                             <tr>
-                                                <td>PMY<?php echo $objResult["Teamcode"]; ?>-<?php echo $objResult["Membercode"]; ?></td>
+                                                <td><a href="#">PMY<?php echo $objResult["Teamcode"]; ?>-<?php echo $objResult["Membercode"]; ?></a></td>
                                                 <td><?php echo $objResult["Firstname"]; ?> <?php echo $objResult["Lastname"]; ?></td>
                                                 <td><?php echo $objResult["Nickname"]; ?></td>
                                                 <td><?php echo $objResult["County"]; ?></td>
-                                                <td><a href="#.php?ID=<?php echo $objResult["ID"];?>" class="btn btn-info btn-xs" onClick="return popup(this, 'stevie')" > แก้ไข </a>&nbsp;
-                                                  <a class="btn btn-danger btn-xs" href="JavaScript:if(confirm('ต้องการที่จะลบรายชื่อนี้หรือไม่?\nคุณจะไม่สารมารถทำการย้อนกลับข้อมูลได้ หากยืนยันการลบ!! ')==true){window.location='#.php?ID=<?php echo $objResult["ID"];?>';}"> ลบ</a></td>
+                                                <td><a href="dedit-member.php?ID=<?php echo $objResult["ID"];?>" class="btn btn-info btn-xs" onClick="return popup(this, 'stevie')" > แก้ไข </a>&nbsp;
+                                                  <a class="btn btn-danger btn-xs" href="JavaScript:if(confirm('ต้องการที่จะลบรายชื่อนี้หรือไม่?\nคุณจะไม่สารมารถทำการย้อนกลับข้อมูลได้ หากยืนยันการลบ!! ')==true){window.location='ddel.php?ID=<?php echo $objResult["ID"];?>';}"> ลบ</a></td>
                                             </tr>
                                             <?php
                         									  }

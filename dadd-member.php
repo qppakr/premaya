@@ -25,6 +25,7 @@ $Checkclass->Admin();
     <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/toast.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -35,10 +36,10 @@ $Checkclass->Admin();
 <!--
 function fncSubmit()
 {
-	if(document.AddMember.txtID.value == "")
+	if(document.AddMember.txtTeamcode.value == "")
 	{
 		alert('กรุณากำหนดรหัสตัวแทน');
-		document.AddMember.txtID.focus();
+		document.AddMember.txtTeamcode.focus();
 		return false;
 	}
   if(document.AddMember.txtEmail.value == "")
@@ -99,6 +100,15 @@ function numberonly(textbox, e) {
              return true;
          }
        }
+
+// function showToast(text){
+//          var x=document.getElementById("toast");
+//          x.classList.add("show");
+//          x.innerHTML=text;
+//          setTimeout(function(){
+//            x.classList.remove("show");
+//          },3000);
+//        }
 //-->
 </SCRIPT>
 </head>
@@ -113,6 +123,7 @@ function numberonly(textbox, e) {
     <div id="main-wrapper">
         <!-- header header  -->
         <div class="header">
+          <div id="toast"></div>
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
@@ -211,7 +222,7 @@ function numberonly(textbox, e) {
                             <div class="card-body">
                                 <h4 class="card-title">เพิ่มรายชื่อตัวแทน</h4>
                                 <h6 class="card-subtitle">ใส่ข้อมูลให้ครบทุกฟิลล์แล้วกดปุ่มบันทึก เพื่อทำการเพิ่มรายชื่อใหม่เฉพาะ <font color="red">ตัวแทนหลัก VIP</font> เท่านั้น.</h6>
-                                <form name="AddMember" method="post" action="dadd-member-save.php" target="iframe_target">
+                                <form name="AddMember" method="post" action="dadd-member-save.php" onSubmit="JavaScript:return fncSubmit();">
                                   <!-- onSubmit="JavaScript:return fncSubmit();" -->
                                   <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
                                     <div class="form-body">
@@ -223,7 +234,7 @@ function numberonly(textbox, e) {
                                                   <label class="control-label">รหัสตัวแทน (ลำดับปัจจุบันอยู่ที่ : <?php include("controllers/Query.php");
                                                   $QueryAll = new QueryAll();
                                                   $QueryAll->CountTeamcode(); ?> )</label>
-                                                  <input type="text" name="txtID" id="ID" class="form-control custom-select" placeholder="PMY 00" maxlength="2" onkeypress="return numberonly(this,event);" autofocus>
+                                                  <input type="text" name="txtTeamcode" id="ID" class="form-control custom-select" placeholder="PMY 00" maxlength="2" onkeypress="return numberonly(this,event);" autofocus>
                                                   <small class="form-control-feedback"> กำหนดรหัสเฉพาะแม่ทีมเท่านั้น (ระบุตัวเลขเท่านั้น) </small> </div>
                                           </div>
                                             <!--/span-->
@@ -303,7 +314,7 @@ function numberonly(textbox, e) {
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Instagram</label>
-                                                    <input type="text" name="txtInstragram" id="Instagram" class="form-control" placeholder="">
+                                                    <input type="text" name="txtIG" id="Instagram" class="form-control" placeholder="">
                                                     <small class="form-control-feedback">เฉพาะชื่อไอดี Instagram เท่านั้น</small> </div>
                                             </div>
                                             <!--/span-->

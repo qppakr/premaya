@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Bangna New';
+    src: url('BangnaNew.eot');
+    src: url('BangnaNew.eot?#iefix') format('embedded-opentype'),
+        url('BangnaNew.woff') format('woff'),
+        url('BangnaNew.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
