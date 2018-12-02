@@ -59,11 +59,11 @@
 
                     									if($objResult["Class"] == "A")
                     									{
-                    										header("location:dashboard.php");
+                    										header("location:DASHBOARD.php");
                     									}
                     									else
                     									{
-                    										header("location:profile.php");
+                    										header("location:PROFILE.php");
                     									}
                     								}
                     						mysqli_close($con);

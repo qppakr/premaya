@@ -86,7 +86,8 @@
                                           else {
                                             $Num++;
                                           }
-                                          $strSQL = "INSERT INTO account (Firstname,Lastname,Email,Password,Teamcode,Membercode) VALUES ('".$_POST["txtFirstname"]."','".$_POST["txtLastname"]."','".$_POST["txtEmail"]."','$strPassword','".$objResult["Teamcode"]."','$Num')";
+                                          $birthday = $_POST["bday"] .'/'. $_POST["bmonth"] .'/'. $_POST["byear"];
+                                          $strSQL = "INSERT INTO account (Firstname,Lastname,Birthday,Email,Password,Teamcode,Membercode) VALUES ('".$_POST["txtFirstname"]."','".$_POST["txtLastname"]."','$birthday','".$_POST["txtEmail"]."','$strPassword','".$objResult["Teamcode"]."','$Num')";
                                 					$objQuery = mysqli_query($con,$strSQL);
                                           echo "<p class='alert alert-success'>ลงทะเบียนตัวแทนสำเร็จ! </p><br>";
 

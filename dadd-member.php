@@ -149,7 +149,7 @@ function numberonly(textbox, e) {
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="dprofile.php"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
+                                    <li><a href="DPROFILE.php"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
                                     <li><a href="logout.php"><i class="fa fa-power-off"></i> ล็อคเอ้าท์</a></li>
                                 </ul>
                             </div>
@@ -170,13 +170,13 @@ function numberonly(textbox, e) {
                         <li class="nav-label">โฮม</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">แผงควบคุม <span class="label label-rouded label-primary pull-right">1</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="dashboard.php">ข้อมูลโดยรวม </a></li>
+                                <li><a href="DASHBOARD.php">ข้อมูลโดยรวม </a></li>
                             </ul>
                         </li>
                         <li class="nav-label">การจัดการ</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">รายชื่อตัวแทน</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="dmember.php">รายชื่อทั้งหมด</a></li>
+                                <li><a href="DMEMBER.php">รายชื่อทั้งหมด</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">เพิ่ม/ลบ รายชื่อ</span></a>
@@ -235,7 +235,7 @@ function numberonly(textbox, e) {
                                                   $QueryAll = new QueryAll();
                                                   $QueryAll->CountTeamcode(); ?> )</label>
                                                   <input type="text" name="txtTeamcode" id="ID" class="form-control custom-select" placeholder="PMY 00" maxlength="2" onkeypress="return numberonly(this,event);" autofocus>
-                                                  <small class="form-control-feedback"> กำหนดรหัสเฉพาะแม่ทีมเท่านั้น (ระบุตัวเลขเท่านั้น) </small> </div>
+                                                  <small class="form-control-feedback"> กำหนดรหัสแม่ทีมเท่านั้น (กรุณาระบุเลขที่ต่อจากลำดับปัจจุบัน) </small> </div>
                                           </div>
                                             <!--/span-->
 

@@ -34,6 +34,24 @@ $Checkclass->Member();
 </head>
 
 <body class="fix-header fix-sidebar">
+<script language="javascript">
+function fncSubmitPass()
+{
+	if(document.EditPassword.txtPassword.value == "")
+	{
+		alert('ต้องระบุรหัสผ่านใหม่');
+		document.EditPassword.txtPassword.focus();
+		return false;
+	}
+	document.EditPassword.submit();
+}
+</script>
+  <?php
+  include('controllers/Connect.php');
+  $strSQL = "SELECT * FROM account WHERE ID = '".$_SESSION['ID']."' ";
+  $objQuery = mysqli_query($con,$strSQL);
+  $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+   ?>
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
@@ -65,7 +83,7 @@ $Checkclass->Member();
 
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/photo/<?php echo $objResult["Photo"]; ?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
@@ -117,12 +135,7 @@ $Checkclass->Member();
             <!-- Container fluid  -->
             <div class="container-fluid">
                 <!-- Start Page Content -->
-                <?php
-                include('controllers/Connect.php');
-                $strSQL = "SELECT * FROM account WHERE ID = '".$_SESSION['ID']."' ";
-                $objQuery = mysqli_query($con,$strSQL);
-                $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
-                 ?>
+
                 <div class="row">
                   <div class="col-lg-12">
                       <div class="card">
@@ -155,6 +168,7 @@ $Checkclass->Member();
                               <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">แก้ไขรูปประจำตัว</a> </li>
                               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#qrcode" role="tab">แก้ไขคิวอาร์โค้ด</a> </li>
                               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">แก้ไขข้อมูลส่วนตัว</a> </li>
+                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#passtab" role="tab">แก้ไขรหัสผ่าน</a> </li>
                           </ul>
                           <!-- Tab panes -->
                           <div class="tab-content">
@@ -178,7 +192,7 @@ $Checkclass->Member();
 
                               <div class="tab-pane" id="settings" role="tabpanel">
                                   <div class="card-body">
-                                    <form name="AddMember" method="post" action="dadd-member-save.php" onSubmit="JavaScript:return fncSubmit();">
+                                    <form name="EditMember" method="post" action="PROFILE-UPDATED.php" onSubmit="JavaScript:return fncSubmit();">
                                       <!-- onSubmit="JavaScript:return fncSubmit();" -->
                                       <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
                                         <div class="form-body">
@@ -187,10 +201,17 @@ $Checkclass->Member();
                                             <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group has-success">
-                                                      <input type="text" name="txtTeamcode" id="ID" class="form-control custom-select" placeholder="PMY 00" maxlength="2" disabled>
+                                                      <input type="text" name="txtTeamcode" id="PMYCode" class="form-control custom-select" value="PMY<?php echo $objResult["Teamcode"];?>-<?php echo $objResult["Membercode"];?>" maxlength="2" disabled>
+                                                      <input type="text" name="txtID" id="ID" value="<?php echo $objResult["ID"];?>" hidden>
                                                       <small class="form-control-feedback"> รหัสตัวแทนของคุณ </small> </div>
                                               </div>
                                                 <!--/span-->
+
+                                                <div class="col-md-6" <?php if($objResult["Membercode"] != "000"){ echo "hidden"; }?>>
+                                                    <div class="form-group has-success">
+                                                        <input type="text" name="txtPMC" id="PMC" class="form-control custom-select" value="<?php echo $objResult["PMC"];?>" maxlength="10">
+                                                        <small class="form-control-feedback"> รหัส PMC ของคุณ </small> </div>
+                                                </div>
 
                                                 <!--/span-->
                                             </div>
@@ -198,15 +219,8 @@ $Checkclass->Member();
                                                 <div class="col-md-6">
                                                     <div class="form-group has-warning">
                                                         <label class="control-label">อีเมล์</label>
-                                                        <input type="email" name="txtEmail" id="Email" class="form-control custom-select" placeholder="example@email.com">
-                                                        <small class="form-control-feedback"> ระบุอีเมล์เพื่อกำหนดเป็นชื่อเข้าใช้ </small> </div>
-                                                </div>
-                                                <!--/span-->
-                                                <div class="col-md-6">
-                                                    <div class="form-group has-warning">
-                                                        <label class="control-label">รหัสผ่าน</label>
-                                                        <input type="text" name="txtPassword" id="Password" class="form-control custom-select" placeholder="">
-                                                        <small class="form-control-feedback"> กำหนดรหัสผ่านให้เป็นค่าเริ่มต้น (ตัวเลข, ภาษาอังกฤษเท่านั้น) </small> </div>
+                                                        <input type="email" name="txtEmail" id="Email" class="form-control custom-select" value="<?php echo $objResult["Email"];?>" disabled>
+                                                        <small class="form-control-feedback"> อีเมล์เข้าใช้งาน </small> </div>
                                                 </div>
                                                 <!--/span-->
                                             </div>
@@ -214,14 +228,14 @@ $Checkclass->Member();
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">ชื่อจริง</label>
-                                                        <input type="text" name="txtFirstname" id="Firstname" class="form-control" placeholder="">
+                                                        <input type="text" name="txtFirstname" id="Firstname" class="form-control" value="<?php echo $objResult["Firstname"];?>">
                                                         <small class="form-control-feedback"> ชื่อจริง (ภาษาไทย) </small> </div>
                                                 </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">นามสกุล</label>
-                                                        <input type="text" name="txtLastname" id="Lastname" class="form-control" placeholder="">
+                                                        <input type="text" name="txtLastname" id="Lastname" class="form-control" value="<?php echo $objResult["Lastname"];?>">
                                                         <small class="form-control-feedback"> นามสกุล (ภาษาไทย) </small> </div>
                                                 </div>
                                                 <!--/span-->
@@ -231,7 +245,7 @@ $Checkclass->Member();
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label class="control-label">ชื่อเล่น</label>
-                                                      <input type="text" name="txtNickname" id="Nickname" class="form-control" placeholder="">
+                                                      <input type="text" name="txtNickname" id="Nickname" class="form-control" value="<?php echo $objResult["Nickname"];?>">
                                                       <small class="form-control-feedback"> ชื่อเล่น (ภาษาไทย) </small> </div>
                                               </div>
                                                 <!--/span-->
@@ -243,14 +257,14 @@ $Checkclass->Member();
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label class="control-label">เบอร์ติดต่อ</label>
-                                                      <input type="text" name="txtPhone" id="Phone" class="form-control" placeholder="" maxlength="10">
+                                                      <input type="text" name="txtPhone" id="Phone" class="form-control" value="<?php echo $objResult["Phone"];?>" maxlength="10">
                                                       <small class="form-control-feedback"> เบอร์โทรศัพท์ที่ติดต่อได้ </small> </div>
                                               </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">LINE ID</label>
-                                                        <input type="text" name="txtLine" id="LineID" class="form-control" placeholder="">
+                                                        <input type="text" name="txtLine" id="LineID" class="form-control" value="<?php echo $objResult["LineID"];?>">
                                                         <small class="form-control-feedback"></small> </div>
                                                 </div>
                                                 <!--/span-->
@@ -260,14 +274,14 @@ $Checkclass->Member();
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label class="control-label">Facebook</label>
-                                                      <input type="text" name="txtFacebook" id="Facebook" class="form-control" placeholder="">
+                                                      <input type="text" name="txtFacebook" id="Facebook" class="form-control" value="<?php echo $objResult["Facebook"];?>">
                                                       <small class="form-control-feedback">เฉพาะชื่อเฟสบุ้คเท่านั้น</small> </div>
                                               </div>
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Instagram</label>
-                                                        <input type="text" name="txtIG" id="Instagram" class="form-control" placeholder="">
+                                                        <input type="text" name="txtIG" id="Instagram" class="form-control" value="<?php echo $objResult["IG"];?>">
                                                         <small class="form-control-feedback">เฉพาะชื่อไอดี Instagram เท่านั้น</small> </div>
                                                 </div>
                                                 <!--/span-->
@@ -279,14 +293,15 @@ $Checkclass->Member();
                                                 <div class="col-md-12 ">
                                                     <div class="form-group">
                                                         <label>ที่อยู่</label>
-                                                        <input type="text" name="txtAddress" id="Address" class="form-control">
+                                                        <input type="text" name="txtAddress" id="Address" class="form-control" value="<?php echo $objResult["Address"];?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>จังหวัด</label>
-                                                        <select name="selCountry" class="form-control custom-select">
-                                                            <option value="กรุงเทพมหานคร" selected>กรุงเทพมหานคร</option>
+                                                        <select name="selCountry" class="form-control custom-select" value="<?php echo $objResult["County"];?>">
+                                                            <option value="<?php echo $objResult["County"];?>" selected>-- <?php echo $objResult["County"];?> -- </option>
+                                                            <option value="กรุงเทพมหานคร">กรุงเทพมหานคร </option>
                                                             <option value="กระบี่">กระบี่ </option>
                                                             <option value="กาญจนบุรี">กาญจนบุรี </option>
                                                             <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
@@ -377,6 +392,40 @@ $Checkclass->Member();
                                         </div>
                                     </form>
                                   </div>
+                              </div>
+                              <div class="tab-pane" id="passtab" role="tabpanel">
+                                <form name="EditPassword" method="post" action="PASSWORD-UPDATED.php" onSubmit="JavaScript:return fncSubmitPass();">
+                                  <!-- onSubmit="JavaScript:return fncSubmit();" -->
+                                  <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
+                                  <div class="card-body">
+                                      <!-- <h4 class="font-medium m-t-30">แก้ไขรูปประจำตัวและคิวอาร์โค้ด</h4> -->
+                                      <br>
+                                      <hr>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">รหัสผ่านเดิม</label>
+                                                <input type="text" name="txtOldpass" id="Oldpass" class="form-control" placeholder="">
+                                                <input type="text" name="txtID" id="ID" value="<?php echo $objResult["ID"];?>" hidden>
+                                                <small class="form-control-feedback"> ระบุรหัสผ่านเดิม เพื่อยืนยัน </small> </div>
+                                        </div>
+                                          <!--/span-->
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">รหัสผ่านใหม่</label>
+                                                <input type="text" name="txtPassword" id="Password" class="form-control" placeholder="">
+                                                <small class="form-control-feedback"> กำหนดรหัสผ่านใหม่ (ตัวเลข, ภาษาอังกฤษเท่านั้น) </small> </div>
+                                        </div>
+                                          <!--/span-->
+                                      </div>
+                                      <div class="form-actions" align="center">
+                                          <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> บันทึก </button>
+                                      </div>
+
+                                  </div>
+                                </form>
                               </div>
                           </div>
                       </div>

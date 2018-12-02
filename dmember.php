@@ -25,6 +25,7 @@ $Checkclass->Admin();
     <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/4.0.11/css/tableexport.css" rel="stylesheet"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -83,7 +84,7 @@ return false;
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="dprofile.php"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
+                                    <li><a href="DPROFILE.php"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
                                     <li><a href="logout.php"><i class="fa fa-power-off"></i> ล็อคเอ้าท์</a></li>
                                 </ul>
                             </div>
@@ -104,13 +105,13 @@ return false;
                         <li class="nav-label">โฮม</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">แผงควบคุม <span class="label label-rouded label-primary pull-right">1</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="dashboard.php">ข้อมูลโดยรวม </a></li>
+                                <li><a href="DASHBOARD.php">ข้อมูลโดยรวม </a></li>
                             </ul>
                         </li>
                         <li class="nav-label">การจัดการ</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">รายชื่อตัวแทน</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="dmember.php">รายชื่อทั้งหมด</a></li>
+                                <li><a href="DMEMBER.php">รายชื่อทั้งหมด</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">เพิ่ม/ลบ รายชื่อ</span></a>
@@ -155,14 +156,16 @@ return false;
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">รายชื่อตัวแทนทั้งหมด</h4>
-                                <h6 class="card-subtitle">เลือกกระทำส่งออกข้อมูล คัดลอก, ไฟล์ CSV, ไฟล์ Excel, ไฟล์ PDF & พิมพ์</h6>
+                                <h6 class="card-subtitle">เลือกกระทำส่งออกข้อมูล คัดลอก, ไฟล์ CSV, ไฟล์ Excel</h6>
                                 <div class="table-responsive m-t-40">
+                                  <div><a href="DMEMBER-EXPORT.php" class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-export"></i> Export . . . </a>
+</div>
                                   <?php
       									include("controllers/Connect.php");
       									$strSQL = "SELECT * FROM account ORDER BY ID";
       									$objQuery = mysqli_query($con,$strSQL) or die ("Error Query [".$strSQL."]");
       									?>
-                                    <table id="example23" class="display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                                    <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>รหัสตัวแทน</th>
@@ -191,7 +194,7 @@ return false;
                                                 <td><?php echo $objResult["Firstname"]; ?> <?php echo $objResult["Lastname"]; ?></td>
                                                 <td><?php echo $objResult["Nickname"]; ?></td>
                                                 <td><?php echo $objResult["County"]; ?></td>
-                                                <td><a href="dedit-member.php?ID=<?php echo $objResult["ID"];?>" class="btn btn-info btn-xs" onClick="return popup(this, 'stevie')" > แก้ไข </a>&nbsp;
+                                                <td><a href="DEDIT-MEMBER.php?ID=<?php echo $objResult["ID"];?>" class="btn btn-info btn-xs" onClick="return popup(this, 'stevie')" > แก้ไข </a>&nbsp;
                                                   <a class="btn btn-danger btn-xs" href="JavaScript:if(confirm('ต้องการที่จะลบรายชื่อนี้หรือไม่?\nคุณจะไม่สารมารถทำการย้อนกลับข้อมูลได้ หากยืนยันการลบ!! ')==true){window.location='ddel.php?ID=<?php echo $objResult["ID"];?>';}"> ลบ</a></td>
                                             </tr>
                                             <?php
@@ -246,6 +249,30 @@ return false;
     <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script src="js/lib/datatables/datatables-init.js"></script>
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.11.10/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blob-polyfill/1.0.20150320/Blob.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/4.0.11/js/tableexport.min.js"></script> -->
+
+
+    <!-- <script>
+
+  		TableExport(document.getElementsByTagName("table"), {
+  			headers: true,                              // (Boolean), display table headers (th or td elements) in the <thead>, (default: true)
+  			footers: true,                              // (Boolean), display table footers (th or td elements) in the <tfoot>, (default: false)
+  			formats: ['xlsx', 'csv', 'txt'],             // (String[]), filetype(s) for the export, (default: ['xls', 'csv', 'txt'])
+  			filename: 'PrimayaMember',                             // (id, String), filename for the downloaded file, (default: 'id')
+  			bootstrap: true,                           // (Boolean), style buttons using bootstrap, (default: true)
+  			exportButtons: true,                        // (Boolean), automatically generate the built-in export buttons for each of the specified formats (default: true)
+  			position: 'top',                         // (top, bottom), position of the caption element relative to table, (default: 'bottom')
+  			ignoreRows: null,                           // (Number, Number[]), row indices to exclude from the exported file(s) (default: null)
+  			ignoreCols: null,                           // (Number, Number[]), column indices to exclude from the exported file(s) (default: null)
+  			trimWhitespace: true                        // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s) (default: false)
+  		});
+
+  	</script> -->
 
 </body>
 

@@ -11,7 +11,7 @@
     <body>
         <div class="container">
 			<div class="panel panel-default">
-  				<div class="panel-heading">เลือกภาพโปรไฟล์ (.jpg .png ขนาดไฟล์ไม่เกิน 1 Mb)</div>
+  				<div class="panel-heading">เลือกภาพคิวอาร์โค้ด (.jpg .png ขนาดไฟล์ไม่เกิน 1 Mb)</div>
   				<div class="panel-body" align="center">
   					<input type="file" name="upload_image" id="upload_image" />
   					<br />

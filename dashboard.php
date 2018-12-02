@@ -68,7 +68,7 @@ $Checkclass->Admin();
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="dprofile.php"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
+                                    <li><a href="DPROFILE.php"><i class="ti-user"></i> ข้อมูลส่วนตัว</a></li>
                                     <li><a href="logout.php"><i class="fa fa-power-off"></i> ล็อคเอ้าท์</a></li>
                                 </ul>
                             </div>
@@ -89,13 +89,13 @@ $Checkclass->Admin();
                         <li class="nav-label">โฮม</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">แผงควบคุม <span class="label label-rouded label-primary pull-right">1</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="dashboard.php">ข้อมูลโดยรวม </a></li>
+                                <li><a href="DASHBOARD.php">ข้อมูลโดยรวม </a></li>
                             </ul>
                         </li>
                         <li class="nav-label">การจัดการ</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">รายชื่อตัวแทน</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="dmember.php">รายชื่อทั้งหมด</a></li>
+                                <li><a href="DMEMBER.php">รายชื่อทั้งหมด</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">เพิ่ม/ลบ รายชื่อ</span></a>
@@ -143,7 +143,7 @@ $Checkclass->Admin();
                                     <span><i class="ti-bag f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">278</h2>
+                                    <h2 class="color-white">9999</h2>
                                     <p class="m-b-0">ตัวแทนทั้งหมด</p>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ $Checkclass->Admin();
                                     <span><i class="ti-comment f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">278</h2>
+                                    <h2 class="color-white">9999</h2>
                                     <p class="m-b-0">ตัวแทน VIP</p>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ $Checkclass->Admin();
                                     <span><i class="ti-vector f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">$27647</h2>
+                                    <h2 class="color-white">DEMO</h2>
                                     <p class="m-b-0">มีตัวแทนมากที่สุด</p>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@ $Checkclass->Admin();
                                     <span><i class="ti-location-pin f-s-40"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2 class="color-white">278</h2>
+                                    <h2 class="color-white">DEMO</h2>
                                     <p class="m-b-0">จังหวัดมากที่สุด</p>
                                 </div>
                             </div>
@@ -190,9 +190,7 @@ $Checkclass->Admin();
                     </div>
                 </div>
 
-                <div class="row">
-
-                    <!-- /# column -->
+              <!-- <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-title">
@@ -243,8 +241,8 @@ $Checkclass->Admin();
 									</table>
 								</div>
 							</div>
-                        </div>
-                    </div>
+            </div>
+          </div>
 
                     <div class="card">
                         <div class="card-title">
@@ -295,7 +293,7 @@ $Checkclass->Admin();
                             </div>
                         </div>
                     </div>
-				</div>
+				          </div> -->
 
                 <!-- /# row -->
 
@@ -304,7 +302,7 @@ $Checkclass->Admin();
             </div>
             <!-- End Container fluid  -->
             <!-- footer -->
-            <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+            <!-- <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer> -->
             <!-- End footer -->
         </div>
         <!-- End Page wrapper  -->

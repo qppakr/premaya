@@ -5,12 +5,12 @@ $objQuery = mysqli_query($con,$strSQL);
 if($objQuery)
 {
   echo "<script>alert('ลบข้อมูลสำเร็จ');
-  window.location.href='dmember.php';
+  window.location.href='DMEMBER.php';
   </script>";
 }
 else {
   echo "<script>alert('เกิดข้อผิดพลาด ไม่สามารถลบข้อมูลได้');
-  window.location.href='dmember.php';
+  window.location.href='DMEMBER.php';
   </script>";
 }
 mysqli_close($con);
